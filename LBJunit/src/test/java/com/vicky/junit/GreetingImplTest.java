@@ -19,6 +19,16 @@ public class GreetingImplTest {
 		System.out.println("This is before method");
 	}
 
+	@After
+	public void cleanUp(){
+		System.out.println("This is After method");
+	}
+
+	@AfterClass
+	public static void clean1(){
+		greetingImpl = null;
+	}
+
 	@Test
 	public void testGreet() {
 		//GreetingImpl greetingImpl = new GreetingImpl();
@@ -30,29 +40,45 @@ public class GreetingImplTest {
 		//assertTrue(true);
 		//ddd();
 	}
-	@After
-	public void cleanUp(){
-		System.out.println("This is After method");
-	}
 
-	@AfterClass
-	public static void clean1(){
-		greetingImpl = null;
-	}
-	/*@Test(expected = IllegalArgumentException.class)
+
+	@Test(expected = IllegalArgumentException.class)
 	public void greetShouldThrowExeceptionwhennameisnull(){
 		//GreetingImpl greetingImpl = new GreetingImpl();
 		greetingImpl.greet(null);
 	}
-	
+
 	@Test(expected = IllegalArgumentException.class)
 	public void greetShouldThrowExeceptionwhennameisblank(){
 		//GreetingImpl greetingImpl = new GreetingImpl();
 		greetingImpl.greet("");
+	}
+
+	@Test(timeout = 500)
+	public void greetShouldTimeOut() throws InterruptedException {
+			Thread.sleep(300);
+			assertEquals("Hello Junit", greetingImpl.greet("Junit"));
+	}
+
+	/*@Test
+	public void TestAssertSame(){
+		String a = new String("Junit");
+		String b = new String("Junit");
+		assertSame(a,b);
+	}
+	@Test
+	public void TestAsserNottSame(){
+		String a = new String("Junit");
+		String b = new String("Junit");
+		assertNotSame(a,b);
 	}*/
 
-
-
+	/*@Test
+	public void TestAssertArrayEquals(){
+		int a[] = {1,2,3};
+		int[] b = {1,2,3};
+		assertArrayEquals(a,b);
+	}*/
 
 
 }
