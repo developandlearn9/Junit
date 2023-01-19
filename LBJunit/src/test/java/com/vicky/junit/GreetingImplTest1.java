@@ -1,11 +1,10 @@
 package com.vicky.junit;
 
-import static org.junit.Assert.*;
-import static org.junit.Assert.fail;
-
 import org.junit.*;
 
-public class GreetingImplTest {
+import static org.junit.Assert.*;
+
+public class GreetingImplTest1 {
 	
 	private static GreetingImpl greetingImpl;
 
@@ -56,7 +55,7 @@ public class GreetingImplTest {
 
 	@Test(timeout = 500)
 	public void greetShouldTimeOut() throws InterruptedException {
-			Thread.sleep(300);
+			Thread.sleep(400);
 			assertEquals("Hello Junit", greetingImpl.greet("Junit"));
 	}
 
