@@ -1,6 +1,7 @@
 package com.vicky.junit;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.junit.*;
@@ -56,7 +57,7 @@ public class GreetingImplTest {
 
 	@Test(timeout = 500)
 	public void greetShouldTimeOut() throws InterruptedException {
-			Thread.sleep(300);
+			Thread.sleep(600);
 			assertEquals("Hello Junit", greetingImpl.greet("Junit"));
 	}
 
@@ -64,7 +65,7 @@ public class GreetingImplTest {
 	public void TestAssertSame(){
 		String a = new String("Junit");
 		String b = new String("Junit");
-		String c = a;
+		String c = b;
 		assertSame(a,c);
 	}
 	@Test

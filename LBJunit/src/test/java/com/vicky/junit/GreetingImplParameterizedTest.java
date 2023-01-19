@@ -3,7 +3,7 @@ package com.vicky.junit;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-
+import org.junit.runners.Parameterized.Parameters;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
@@ -14,6 +14,8 @@ import static org.junit.Assert.*;
 public class GreetingImplParameterizedTest {
 	
 	private static GreetingImpl greetingImpl;
+	private String input;
+	private String expected;
 
 	@BeforeClass
 	public static void beforeClass(){
@@ -35,16 +37,14 @@ public class GreetingImplParameterizedTest {
 		greetingImpl = null;
 	}
 
-	@Parameterized.Parameters
+	@Parameters
 	public static Collection primeArguments() {
 		return Arrays.asList(new Object[][] {
-				{ "Junit",  "Hello Junit"},
-				{ "Junit1", "Hello Junit1"}
+				{ "Junit",  "Hello Junit0"},
+				{ "Junit1", "Hello Junit1"},
+				{ "Junit3", "Hello Junit3"}
 		});
 	}
-
-	private String input;
-	private String expected;
 
 	public GreetingImplParameterizedTest(String input, String expected) {
 		this.input = input;
